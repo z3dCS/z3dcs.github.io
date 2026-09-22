@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>z3d's CS Enhancer</title>
+
+  <meta
+    name="description"
+    content="z3d's CS Enhancer is a local-first CS2 performance analysis and training application."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #102a32 0%, #081116 35%, #030608 75%);
+      color: #eafcff;
+      min-height: 100vh;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 28px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: #19e6eb;
+    }
+
+    nav a {
+      color: #9fb4ba;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #19e6eb;
+    }
+
+    .hero {
+      max-width: 1050px;
+      margin: auto;
+      padding: 110px 24px 90px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(25, 230, 235, 0.35);
+      background: rgba(25, 230, 235, 0.07);
+      color: #67f5f8;
+      padding: 8px 15px;
+      border-radius: 100px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 90px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: #19e6eb;
+      text-shadow: 0 0 30px rgba(25, 230, 235, 0.25);
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: auto;
+      font-size: 19px;
+      line-height: 1.7;
+      color: #9fb4ba;
+    }
+
+    .status {
+      margin-top: 38px;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #c7dadd;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      background: #19e6eb;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #19e6eb;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #81979d;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        rgba(18, 31, 37, 0.95),
+        rgba(8, 15, 19, 0.95)
+      );
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .card h3 {
+      color: #eaffff;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #82979c;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .icon {
+      font-size: 26px;
+      color: #19e6eb;
+      margin-bottom: 18px;
+    }
+
+    .privacy {
+      background: rgba(25, 230, 235, 0.04);
+      border: 1px solid rgba(25, 230, 235, 0.14);
+      border-radius: 16px;
+      padding: 38px;
+      line-height: 1.8;
+      color: #9fb4ba;
+    }
+
+    .privacy strong {
+      color: #eaffff;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin-top: 70px;
+      padding: 35px 20px;
+      text-align: center;
+      color: #667b80;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav .links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="brand">
+      <span>Z3D</span> CS Enhancer
+    </div>
+
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="hero">
+
+      <div class="badge">
+        CS2 PERFORMANCE • TRAINING • ANALYTICS
+      </div>
+
+      <h1>
+        z3d's<br>
+        <span>CS Enhancer</span>
+      </h1>
+
+      <p class="subtitle">
+        A local-first Counter-Strike 2 performance analysis and training
+        application designed to turn FACEIT match data, demo analysis and
+        training statistics into practical coaching and personalised
+        improvement routines.
+      </p>
+
+      <div class="status">
+        <div class="dot"></div>
+        Currently in active development
+      </div>
+
+    </div>
+
+
+    <section id="features">
+
+      <div class="section-title">
+        <h2>Built for improvement</h2>
+        <p>More than a match history. A system designed around player development.</p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="icon">◎</div>
+          <h3>Match Analysis</h3>
+          <p>
+            Track FACEIT matches, map performance, individual statistics
+            and long-term trends automatically.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⌁</div>
+          <h3>Adaptive Coaching</h3>
+          <p>
+            Analyse recent performance against personal baselines and
+            identify areas requiring additional training.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">△</div>
+          <h3>Refrag Training</h3>
+          <p>
+            Generate targeted warm-ups and training sessions using modes
+            such as Crossfire, Prefire, Xfire and Defender.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">◫</div>
+          <h3>Training Schedule</h3>
+          <p>
+            Plan individual training around team practice, FACEIT sessions,
+            warm-ups and post-session mechanical work.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">↗</div>
+          <h3>Performance Trends</h3>
+          <p>
+            Compare recent performance against longer-term baselines instead
+            of reacting to a single good or bad match.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⬡</div>
+          <h3>Demo Analysis</h3>
+          <p>
+            Designed to analyse completed CS2 demos locally for detailed
+            positional, round and engagement information.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="privacy">
+
+      <div class="section-title">
+        <h2>Local-first privacy</h2>
+      </div>
+
+      <div class="privacy">
+        <strong>z3d's CS Enhancer is designed around local processing.</strong>
+        Player analysis and application data are intended to remain on the
+        user's own PC. Match demos can be processed temporarily and removed
+        once analysis is complete. The application does not require access
+        to live CS2 game memory and is not designed to inject into or modify
+        the game.
+      </div>
+
+    </section>
+
+
+    <section id="about">
+
+      <div class="section-title">
+        <h2>About the project</h2>
+        <p>
+          z3d's CS Enhancer is an independent player-development project
+          currently being developed for Counter-Strike 2 players.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    z3d's CS Enhancer • Independent CS2 performance and training project
+  </footer>
+
+</body>
+</html>

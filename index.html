@@ -1,357 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071014">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="z3d CS Enhancer">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
   <title>z3d's CS Enhancer</title>
-
-  <meta
-    name="description"
-    content="z3d's CS Enhancer is a local-first CS2 performance analysis and training application."
-  >
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, #102a32 0%, #081116 35%, #030608 75%);
-      color: #eafcff;
-      min-height: 100vh;
-    }
-
-    nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 28px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .brand span {
-      color: #19e6eb;
-    }
-
-    nav a {
-      color: #9fb4ba;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: #19e6eb;
-    }
-
-    .hero {
-      max-width: 1050px;
-      margin: auto;
-      padding: 110px 24px 90px;
-      text-align: center;
-    }
-
-    .badge {
-      display: inline-block;
-      border: 1px solid rgba(25, 230, 235, 0.35);
-      background: rgba(25, 230, 235, 0.07);
-      color: #67f5f8;
-      padding: 8px 15px;
-      border-radius: 100px;
-      font-size: 13px;
-      letter-spacing: 2px;
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      font-size: clamp(48px, 8vw, 90px);
-      line-height: 0.95;
-      letter-spacing: -3px;
-      margin-bottom: 28px;
-    }
-
-    h1 span {
-      color: #19e6eb;
-      text-shadow: 0 0 30px rgba(25, 230, 235, 0.25);
-    }
-
-    .subtitle {
-      max-width: 760px;
-      margin: auto;
-      font-size: 19px;
-      line-height: 1.7;
-      color: #9fb4ba;
-    }
-
-    .status {
-      margin-top: 38px;
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      padding: 12px 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      color: #c7dadd;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      background: #19e6eb;
-      border-radius: 50%;
-      box-shadow: 0 0 12px #19e6eb;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 24px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 42px;
-    }
-
-    .section-title h2 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #81979d;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: linear-gradient(
-        145deg,
-        rgba(18, 31, 37, 0.95),
-        rgba(8, 15, 19, 0.95)
-      );
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      padding: 28px;
-    }
-
-    .card h3 {
-      color: #eaffff;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #82979c;
-      line-height: 1.6;
-      font-size: 15px;
-    }
-
-    .icon {
-      font-size: 26px;
-      color: #19e6eb;
-      margin-bottom: 18px;
-    }
-
-    .privacy {
-      background: rgba(25, 230, 235, 0.04);
-      border: 1px solid rgba(25, 230, 235, 0.14);
-      border-radius: 16px;
-      padding: 38px;
-      line-height: 1.8;
-      color: #9fb4ba;
-    }
-
-    .privacy strong {
-      color: #eaffff;
-    }
-
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.07);
-      margin-top: 70px;
-      padding: 35px 20px;
-      text-align: center;
-      color: #667b80;
-      font-size: 13px;
-    }
-
-    @media (max-width: 800px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav .links {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 70px;
-      }
-    }
-  </style>
 </head>
-
 <body>
-
-  <nav>
-    <div class="brand">
-      <span>Z3D</span> CS Enhancer
-    </div>
-
-    <div class="links">
-      <a href="#features">Features</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#about">About</a>
-    </div>
-  </nav>
-
-  <main>
-
-    <div class="hero">
-
-      <div class="badge">
-        CS2 PERFORMANCE • TRAINING • ANALYTICS
+  <div id="app">
+    <header class="topbar">
+      <div class="brandrow">
+        <img src="assets/logo.png" class="brandlogo" alt="z3d's CS Enhancer logo">
+        <div>
+          <div class="eyebrow">CS2 PERFORMANCE COACH</div>
+          <h1>z3d's <span>CS Enhancer</span></h1>
+        </div>
       </div>
+      <button id="syncBtn" class="primary">Sync FACEIT</button>
+    </header>
 
-      <h1>
-        z3d's<br>
-        <span>CS Enhancer</span>
-      </h1>
-
-      <p class="subtitle">
-        A local-first Counter-Strike 2 performance analysis and training
-        application designed to turn FACEIT match data, demo analysis and
-        training statistics into practical coaching and personalised
-        improvement routines.
-      </p>
-
-      <div class="status">
-        <div class="dot"></div>
-        Currently in active development
-      </div>
-
-    </div>
-
-
-    <section id="features">
-
-      <div class="section-title">
-        <h2>Built for improvement</h2>
-        <p>More than a match history. A system designed around player development.</p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-          <div class="icon">◎</div>
-          <h3>Match Analysis</h3>
-          <p>
-            Track FACEIT matches, map performance, individual statistics
-            and long-term trends automatically.
-          </p>
+    <main>
+      <section class="view active" data-view="dashboard">
+        <div class="hero">
+          <div>
+            <div class="eyebrow">PLAYER</div>
+            <div id="playerName" class="heroName">Not connected</div>
+            <div id="playerMeta" class="muted">Connect FACEIT in Settings</div>
+          </div>
+          <div class="eloCard">
+            <span>ELO</span>
+            <strong id="elo">—</strong>
+            <small id="level">Level —</small>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="icon">⌁</div>
-          <h3>Adaptive Coaching</h3>
-          <p>
-            Analyse recent performance against personal baselines and
-            identify areas requiring additional training.
-          </p>
+        <div class="statsGrid">
+          <article><span>Last 5 ADR</span><strong id="adr5">—</strong><small id="adrTrend">No data</small></article>
+          <article><span>Last 5 K/D</span><strong id="kd5">—</strong><small id="kdTrend">No data</small></article>
+          <article><span>Last 5 HS%</span><strong id="hs5">—</strong><small id="hsTrend">No data</small></article>
+          <article><span>Tracked</span><strong id="matchCount">0</strong><small>matches stored</small></article>
         </div>
 
-        <div class="card">
-          <div class="icon">△</div>
-          <h3>Refrag Training</h3>
-          <p>
-            Generate targeted warm-ups and training sessions using modes
-            such as Crossfire, Prefire, Xfire and Defender.
-          </p>
+        <div class="sectionHead">
+          <div><div class="eyebrow">TODAY</div><h2>Recommended session</h2></div>
         </div>
+        <div id="todayPlan" class="planCard"></div>
+      </section>
 
-        <div class="card">
-          <div class="icon">◫</div>
-          <h3>Training Schedule</h3>
-          <p>
-            Plan individual training around team practice, FACEIT sessions,
-            warm-ups and post-session mechanical work.
-          </p>
+      <section class="view" data-view="coach">
+        <div class="sectionHead">
+          <div><div class="eyebrow">ADAPTIVE</div><h2>Coach</h2></div>
         </div>
-
-        <div class="card">
-          <div class="icon">↗</div>
-          <h3>Performance Trends</h3>
-          <p>
-            Compare recent performance against longer-term baselines instead
-            of reacting to a single good or bad match.
-          </p>
+        <div id="coachSummary" class="coachSummary"></div>
+        <div class="split">
+          <article class="panel"><h3>Current focus</h3><div id="focusList"></div></article>
+          <article class="panel"><h3>What changed</h3><div id="trendList"></div></article>
         </div>
+      </section>
 
-        <div class="card">
-          <div class="icon">⬡</div>
-          <h3>Demo Analysis</h3>
-          <p>
-            Designed to analyse completed CS2 demos locally for detailed
-            positional, round and engagement information.
-          </p>
+      <section class="view" data-view="training">
+        <div class="sectionHead">
+          <div><div class="eyebrow">REFRAG</div><h2>Training plan</h2></div>
         </div>
+        <div id="trainingPlan" class="trainingList"></div>
+        <div class="note">The app adjusts drill emphasis from FACEIT trends. Position-specific coaching needs demo data and is intentionally not guessed in Stats Edition.</div>
+      </section>
 
-      </div>
-    </section>
+      <section class="view" data-view="matches">
+        <div class="sectionHead">
+          <div><div class="eyebrow">FACEIT</div><h2>Recent matches</h2></div>
+        </div>
+        <div id="matchesList" class="matchesList"></div>
+      </section>
 
+      <section class="view" data-view="trends">
+        <div class="sectionHead">
+          <div><div class="eyebrow">ROLLING BASELINES</div><h2>Trends</h2></div>
+        </div>
+        <div id="trendCards" class="statsGrid trendcards"></div>
+        <article class="panel"><h3>Map form</h3><div id="mapForm"></div></article>
+      </section>
 
-    <section id="privacy">
+      <section class="view" data-view="schedule">
+        <div class="sectionHead">
+          <div><div class="eyebrow">WEEK</div><h2>Team schedule</h2></div>
+        </div>
+        <div class="note">Team sessions shape warm-up timing, team FACEIT blocks, reset time, and solo-pug recommendations.</div>
+        <div id="scheduleList" class="scheduleList"></div>
+        <button id="saveSchedule" class="primary wide">Save schedule</button>
+      </section>
 
-      <div class="section-title">
-        <h2>Local-first privacy</h2>
-      </div>
+      <section class="view" data-view="settings">
+        <div class="sectionHead">
+          <div><div class="eyebrow">ACCOUNT</div><h2>Settings</h2></div>
+        </div>
+        <form id="settingsForm" class="settingsForm">
+          <label>FACEIT profile URL
+            <input id="faceitUrl" type="url" placeholder="https://www.faceit.com/en/players/Z3D" autocomplete="off">
+          </label>
+          <label>FACEIT client-side API key
+            <input id="apiKey" type="password" placeholder="Paste client-side key" autocomplete="off">
+          </label>
+          <div class="note warning">Use a FACEIT <strong>client-side</strong> key for this web app. Do not paste your server-side secret here.</div>
+          <label>Refrag profile URL
+            <input id="refragUrl" type="url" placeholder="https://play.refrag.gg/user/..." autocomplete="off">
+          </label>
+          <label>Default team FACEIT games
+            <select id="teamGames">
+              <option value="1">1</option>
+              <option value="2" selected>1–2</option>
+            </select>
+          </label>
+          <label class="toggle"><input id="pugAfter" type="checkbox" checked> <span>Plan solo pugs after team practice</span></label>
+          <button class="primary wide" type="submit">Save & test connection</button>
+          <button id="clearData" class="danger wide" type="button">Clear local app data</button>
+        </form>
+        <div class="note privacy">All tracked match data and schedule settings are stored in this browser on this iPhone. This build has no shared player database.</div>
+      </section>
+    </main>
 
-      <div class="privacy">
-        <strong>z3d's CS Enhancer is designed around local processing.</strong>
-        Player analysis and application data are intended to remain on the
-        user's own PC. Match demos can be processed temporarily and removed
-        once analysis is complete. The application does not require access
-        to live CS2 game memory and is not designed to inject into or modify
-        the game.
-      </div>
-
-    </section>
-
-
-    <section id="about">
-
-      <div class="section-title">
-        <h2>About the project</h2>
-        <p>
-          z3d's CS Enhancer is an independent player-development project
-          currently being developed for Counter-Strike 2 players.
-        </p>
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-    z3d's CS Enhancer • Independent CS2 performance and training project
-  </footer>
-
+    <nav class="tabbar" aria-label="Main">
+      <button class="tab active" data-target="dashboard"><span>◉</span><small>Home</small></button>
+      <button class="tab" data-target="coach"><span>✦</span><small>Coach</small></button>
+      <button class="tab" data-target="training"><span>⌁</span><small>Train</small></button>
+      <button class="tab" data-target="matches"><span>≣</span><small>Matches</small></button>
+      <button class="tab" data-target="trends"><span>↗</span><small>Trends</small></button>
+      <button class="tab" data-target="schedule"><span>◫</span><small>Schedule</small></button>
+      <button class="tab" data-target="settings"><span>⚙</span><small>Settings</small></button>
+    </nav>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
 </html>
